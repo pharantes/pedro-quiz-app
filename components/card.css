@@ -41,3 +41,6 @@
 .skill-tree span {
   margin-right: 0.4rem;
 }
+.quiz-answer {
+  display: none;
+}
