@@ -1,0 +1,46 @@
+.profile {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: var(--gap);
+    flex-direction: column;
+}
+
+.profile-avatar,
+.settings {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 80%;
+    font-size: 1.5rem;
+    gap: var(--gap);
+
+}
+
+.profile-avatar {
+    height: 360px;
+    justify-content: space-around;
+}
+
+.avatar-wrap {
+    display: flex;
+    align-items: center;
+    gap: var(--gap);
+}
+
+.img-wrap {
+    border: 3px solid black;
+    border-radius: 50%;
+    padding: 2rem;
+
+}
+
+.avatar-name {
+    font-size: 2rem;
+}
+
+.toggle-dark-mode-settigs {
+    display: flex;
+    gap: var(--gap);
+}
