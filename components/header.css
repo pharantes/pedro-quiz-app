@@ -1,0 +1,26 @@
+/* Header & Navigation */
+
+.main-header {
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  background: var(--inky-black);
+  height: var(--header-height);
+}
+
+.header-brand {
+  color: var(--dark-beige);
+  font-size: var(--header-brand);
+  line-height: var(--header-brand-line-height);
+  text-shadow: 4px 4px var(--forest-green);
+  text-align: center;
+  font-size: 2rem;
+}
+
+.header-text {
+  padding: 0 0 var(--gap) var(--gap);
+  color: var(--dark-beige);
+  font-size: var(--header-text);
+  line-height: var(--header-text-line-height);
+}

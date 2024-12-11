@@ -1,0 +1,56 @@
+@font-face {
+  font-family: "Pacifico";
+  src: url("../fonts/pacifico-regular-webfont.woff2") format("woff2");
+}
+
+:root {
+  /* Color Variables */
+
+  --inky-black: #0d070a;
+  --forest-green: #48594d;
+  --navy-blue: #253b40;
+  --dark-beige: #a69665;
+  --rust-orange: #bf754b;
+  --eggshell-white: #f0e2c4;
+
+  /* Unit Variables*/
+
+  --gap: 20px;
+
+  --header-brand: 4rem;
+  --header-brand-line-height: 7rem;
+
+  --header-text: 1.5rem;
+  --header-text-line-height: 2rem;
+
+  --regular-text: 1rem;
+  --regular-line-height: 1.5rem;
+
+  /* Calculations */
+
+  /* Calculating the header height */
+  --header-height: calc(
+    var(--header-brand-line-height) + var(--header-text-line-height)
+  );
+
+  /* Calculating the nav height */
+  --nav-height: calc(var(--regular-line-height));
+
+  /* Calculating the exact margin required to position the main content
+      directly below the header and nav*/
+  --main-content-margin-top: calc(var(--header-height));
+  --main-content-margin-bottom: calc(var(--nav-height) + (2 * var(--gap)));
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: system-ui;
+  background-color: var(--forest-green);
+}
