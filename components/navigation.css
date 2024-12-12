@@ -19,11 +19,15 @@
   line-height: var(--regular-line-height);
 }
 
+.navbar-link:active,
 .navbar-link:hover {
-  color: var(--inky-black);
+  color: var(--inky-black) !important;
   background-color: var(--eggshell-white);
 }
 
+.navbar-link:visited {
+  color: var(--rust-orange);
+}
 /* Footer */
 
 .main-footer {
