@@ -29,9 +29,7 @@
   /* Calculations */
 
   /* Calculating the header height */
-  --header-height: calc(
-    var(--header-brand-line-height) + var(--header-text-line-height)
-  );
+  --header-height: calc(var(--header-brand-line-height));
 
   /* Calculating the nav height */
   --nav-height: calc(var(--regular-line-height));
@@ -39,7 +37,7 @@
   /* Calculating the exact margin required to position the main content
       directly below the header and nav*/
   --main-content-margin-top: calc(var(--header-height));
-  --main-content-margin-bottom: calc(var(--nav-height) + (2 * var(--gap)));
+  --main-content-padding-bottom: calc(var(--nav-height) + (3 * var(--gap)));
 }
 
 *,
@@ -53,4 +51,13 @@
 body {
   font-family: system-ui;
   background-color: var(--forest-green);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+.main-content {
+  margin-top: var(--main-content-margin-top);
+  padding: var(--gap) 0 var(--main-content-padding-bottom) 0;
+  background: var(--navy-blue);
+  flex-grow: 2;
 }

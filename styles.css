@@ -2,15 +2,5 @@
 @import "./components/header.css";
 @import "./components/navigation.css";
 @import "./components/card.css";
-@import "./components/button.css";
-
-/* Page Content */
-/* Note: Understanding the purpose of main-content and card-section is essential for completing this challenge. */
-
-.main-content {
-  margin-top: var(--main-content-margin-top);
-  margin-bottom: var(--main-content-margin-bottom);
-  padding: var(--gap) 0 var(--gap) 0;
-  background: var(--navy-blue);
-  overflow-y: scroll;
-}
+@import "./components/toggle-button.css";
+@import "./components/profile.css";

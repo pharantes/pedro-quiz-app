@@ -8,25 +8,32 @@
   </head>
   <body>
     <header class="main-header">
-      <h1 class="header-brand">Quiz App</h1>
+      <p class="header-brand">Quiz App</p>
     </header>
     <main class="main-content">
-      <div class="profile-card">
-        <img src="./assets/profile.svg" alt="" srcset="" />
-        <span class="user-name">Max Doe</span>
-      </div>
-      <div class="about">
-        <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing
-          eashiduhasiudhiaushdiasuhdjd
-        </p>
-        <div class="stats">
-          <span class="n-quiz"></span><span class="n-bookmarked"></span>
+      <div class="profile">
+        <div class="profile-avatar">
+          <div class="avatar-wrap">
+            <div class="img-wrap">
+              <img src="./assets/profile.svg" alt="" srcset="" />
+            </div>
+            <span class="avatar-name">Max Doe</span>
+          </div>
+          <h2 class="title">About me</h2>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit</p>
+          <div class="stats">
+            <span class="n-quiz">12</span><span class="n-bookmarked">15</span>
+          </div>
         </div>
-        <h2 class="title">Settings</h2>
-        <div class="toggle-dark-mode">
-          <span class="dark-text">Dark Mode</span>
-          <button class="dark-mode-button">Dark Mode</button>
+        <div class="settings">
+          <h2 class="title">Settings</h2>
+          <div class="toggle-dark-mode-settigs">
+            <span class="dark-text">Dark Mode</span>
+            <label class="switch">
+              <input type="checkbox" />
+              <span class="slider round"></span>
+            </label>
+          </div>
         </div>
       </div>
     </main>
