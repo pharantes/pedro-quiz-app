@@ -27,7 +27,7 @@
   gap: var(--gap);
 }
 .img-wrap {
-  border: 3px solid black;
+  border: 3px solid var(--dark-beige);
   border-radius: 50%;
   padding: 2rem;
 }
