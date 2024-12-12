@@ -2,8 +2,5 @@
 @import "./components/header.css";
 @import "./components/navigation.css";
 @import "./components/card.css";
-@import "./components/button.css";
+@import "./components/toggle-button.css";
 @import "./components/profile.css";
-
-/* Page Content */
-/* Note: Understanding the purpose of main-content and card-section is essential for completing this challenge. */

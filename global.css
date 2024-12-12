@@ -62,3 +62,10 @@ body {
   background: var(--navy-blue);
   flex-grow: 2;
 }
+
+.main-content {
+  margin-top: var(--main-content-margin-top);
+  padding: var(--gap) 0 var(--main-content-padding-bottom) 0;
+  background: var(--navy-blue);
+  flex-grow: 2;
+}
