@@ -9,9 +9,22 @@
   --inky-black: #0d070a;
   --forest-green: #48594d;
   --navy-blue: #253b40;
-  --dark-beige: #ffd43b;
+  --dark-beige: #ffc800;
   --rust-orange: #bf754b;
   --eggshell-white: #f0e2c4;
+
+  /* Color scheme */
+
+  --bg-main-content: var(--eggshell-white);
+  --bg-skill-tree-span: var(--rust-orange);
+  --bg-main-header: var(--rust-orange);
+  --bg-main-footer: var(--rust-orange);
+  --bg-show-answer-button: var(--dark-beige);
+  --color-header-footer: var(--dark-beige);
+  --color-card-title: var(--inky-black);
+  --color-card-question: var(--inky-black);
+  --color-profile: var(--navy-blue);
+  --border-img-wrap: var(--navy-blue);
 
   /* Unit Variables*/
 
@@ -50,7 +63,6 @@
 
 body {
   font-family: system-ui;
-  background-color: var(--forest-green);
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -59,13 +71,6 @@ body {
 .main-content {
   margin-top: var(--main-content-margin-top);
   padding: var(--gap) 0 var(--main-content-padding-bottom) 0;
-  background: var(--navy-blue);
-  flex-grow: 2;
-}
-
-.main-content {
-  margin-top: var(--main-content-margin-top);
-  padding: var(--gap) 0 var(--main-content-padding-bottom) 0;
-  background: var(--navy-blue);
+  background: var(--bg-main-content);
   flex-grow: 2;
 }

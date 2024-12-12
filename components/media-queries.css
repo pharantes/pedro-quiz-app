@@ -1,0 +1,30 @@
+@media (prefers-color-scheme: dark) {
+
+    :root {
+        /* Color scheme */
+
+        --bg-main-content: var(--navy-blue);
+        --color-card-title: var(--eggshell-white);
+        --bg-skill-tree-span: var(--rust-orange);
+        --color-card-question: var(--eggshell-white);
+        --color-profile: var(--eggshell-white);
+        --border-img-wrap: var(--dark-beige);
+        --color-navbar-link: var(--navy-blue);
+        --bg-main-header: var(--inky-black);
+        --color-header-brand: var(--dark-beige);
+        --color-header-text: var(--dark-beige);
+        --bg-main-footer: var(--inky-black);
+        --colo-footer-link: var(--dark-beige);
+    }
+
+    .navbar-link:active,
+    .navbar-link:hover {
+        color: var(--inky-black);
+        background-color: var(--eggshell-white);
+    }
+
+    .navbar-link:visited {
+        color: var(--rust-orange);
+    }
+
+}

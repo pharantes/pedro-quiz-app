@@ -6,12 +6,10 @@
   position: fixed;
   top: var(--header-height);
   width: 100%;
-  background-color: var(--dark-beige);
 }
 
 .navbar-link {
   padding: var(--gap);
-  color: var(--navy-blue);
   width: 100%;
   text-decoration: none;
   text-align: center;
@@ -21,13 +19,10 @@
 
 .navbar-link:active,
 .navbar-link:hover {
-  color: var(--inky-black) !important;
+  color: var(--inky-black);
   background-color: var(--eggshell-white);
 }
 
-.navbar-link:visited {
-  color: var(--rust-orange);
-}
 /* Footer */
 
 .main-footer {
@@ -37,8 +32,9 @@
   width: 100%;
   display: flex;
   gap: var(--gap);
-  background: var(--inky-black);
+  background: var(--bg-main-footer);
   padding: var(--gap);
+  border-top: 1px solid var(--inky-black);
 }
 
 .footer-nav {
@@ -49,5 +45,4 @@
 
 .footer-link {
   text-decoration: none;
-  color: var(--dark-beige);
 }

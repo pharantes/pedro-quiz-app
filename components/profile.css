@@ -4,7 +4,7 @@
   align-items: center;
   justify-content: space-around;
   gap: var(--gap);
-  color: var(--eggshell-white);
+  color: var(--color-profile);
   flex-direction: column;
 }
 
@@ -31,7 +31,7 @@
 }
 
 .img-wrap {
-  border: 3px solid var(--dark-beige);
+  border: 3px solid var(--border-img-wrap);
   border-radius: 50%;
   padding: 2rem;
 }
@@ -52,14 +52,4 @@
 .toggle-dark-mode-settigs {
   display: flex;
   gap: var(--gap);
-}
-
-.dark-mode-btn {
-  font-weight: bold;
-  align-self: center;
-  font-size: 1rem;
-  border: 2px solid black;
-  padding: 0.5rem var(--gap);
-  border-radius: 4px;
-  background-color: var(--dark-beige);
 }

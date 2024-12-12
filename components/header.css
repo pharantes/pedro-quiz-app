@@ -5,12 +5,13 @@
   z-index: 1;
   top: 0;
   width: 100%;
-  background: var(--inky-black);
+  background: var(--bg-main-header);
   height: var(--header-height);
+  border-bottom: 1px solid var(--inky-black);
 }
 
 .header-brand {
-  color: var(--dark-beige);
+  color: var(--color-header-footer);
   font-size: var(--header-brand);
   line-height: var(--header-brand-line-height);
   text-shadow: 4px 4px var(--forest-green);
@@ -20,7 +21,7 @@
 
 .header-text {
   padding: 0 0 var(--gap) var(--gap);
-  color: var(--dark-beige);
+  color: var(--color-header-footer);
   font-size: var(--header-text);
   line-height: var(--header-text-line-height);
 }
