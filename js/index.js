@@ -1,39 +1,41 @@
 // Set up a click event on the document, so any click will trigger the callback
-document.addEventListener("click", userPicked);
+let buttons = document.querySelectorAll(".show-answer-btn");
+let bookmarks = document.querySelectorAll(".bookmark");
 
-function userPicked(evt) {
-  // Check to see if the actual object clicked is one of the buttons
-  if (evt.target.classList.contains("show-answer-btn")) {
-    // Return the value of the clicked button
-    let parentofSelected = evt.target.parentNode; // gives the parent DIV
-    let children = parentofSelected.childNodes;
-    // Toggle class to hide and show answer
-    for (let i = 0; i < children.length; i++) {
-      if (
-        children[i].classList &&
-        children[i].classList.contains("quiz-answer")
-      ) {
-        children[i].classList.toggle("hide-answer");
-      }
-      updateShowButtonText(evt.target);
-    }
-  }
+buttons.forEach((button) => {
+  button.addEventListener("click", buttonPicked);
+});
+bookmarks.forEach((bookmark) => {
+  bookmark.addEventListener("click", bookmarkPicked);
+});
 
-  // Check to see if the actual object clicked is one of the bookmark icons
-  if (evt.target.classList.contains("bookmark")) {
-    // Return the value of the clicked button
-    let bookmarked = evt.target.getAttribute("src");
-    if (bookmarked == "./assets/notbookmark.svg") {
-      evt.target.setAttribute("src", "./assets/bookmark.svg");
-    } else {
-      evt.target.setAttribute("src", "./assets/notbookmark.svg");
+function buttonPicked(evt) {
+  // Return the value of the clicked button
+  let parentofSelected = evt.target.parentNode; // gives the parent DIV
+  let children = parentofSelected.childNodes;
+  // Toggle class to hide and show answer
+  for (let i = 0; i < children.length; i++) {
+    if (children[i]?.classList?.contains("quiz-answer")) {
+      children[i].classList.toggle("hide-answer");
     }
+    updateShowButtonText(evt.target);
   }
 }
+function bookmarkPicked(evt) {
+  // Return the value of the clicked button
+  let bookmarked = evt.target.getAttribute("src");
+  let src =
+    bookmarked == "./assets/notbookmark.svg"
+      ? "./assets/bookmark.svg"
+      : "./assets/notbookmark.svg";
+
+  evt.target.setAttribute("src", src);
+}
+
 // Update button text (show/hide answer) function
 const updateShowButtonText = (btn) => {
-  if (btn.innerHTML == "show answer") return (btn.innerHTML = "hide answer");
-  if (btn.innerHTML == "hide answer") return (btn.innerHTML = "show answer");
+  btn.innerHTML =
+    btn.innerHTML == "show answer" ? "hide answer" : "show answer";
 };
 
 // DARK MODE FUNCTIONALITY BELOW
@@ -109,9 +111,12 @@ form.addEventListener("submit", (event) => {
   cardTitle.classList.add("card-title");
   cardQuestion.classList.add("card-question");
   button.classList.add("show-answer-btn");
+  button.addEventListener("click", buttonPicked);
   answer.classList.add("quiz-answer");
   answer.classList.add("hide-answer");
   img.classList.add("bookmark"); // set source later
+  img.addEventListener("click", bookmarkPicked);
+
   skillTreeDiv.classList.add("skill-tree"); // set source later
 
   // Append elements
@@ -148,7 +153,6 @@ let answerCounter = document.querySelector(".answer-counter");
 let questionInput = document.querySelector(".question-input");
 let answerInput = document.querySelector(".answer-input");
 let maxLength = 160;
-console.log(questionCounter);
 // Default values
 questionCounter.innerHTML = maxLength + " characters left";
 answerCounter.innerHTML = maxLength + " characters left";
