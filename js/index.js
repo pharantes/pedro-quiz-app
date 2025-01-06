@@ -18,6 +18,7 @@ function userPicked(evt) {
       updateShowButtonText(evt.target);
     }
   }
+
   // Check to see if the actual object clicked is one of the bookmark icons
   if (evt.target.classList.contains("bookmark")) {
     // Return the value of the clicked button
@@ -28,61 +29,61 @@ function userPicked(evt) {
       evt.target.setAttribute("src", "./assets/notbookmark.svg");
     }
   }
-
-  // Toggle darkmode
-  if (evt.target.classList.contains("toggle-dark-mode-input")) {
-    if (document.documentElement.getAttribute("data-theme") == "dark") {
-      evt.target.checked = true;
-      console.log(evt.target.checked);
-    }
-    detectColorScheme();
-    switchTheme(evt.target);
-  }
 }
-
 // Update button text (show/hide answer) function
 const updateShowButtonText = (btn) => {
   if (btn.innerHTML == "show answer") return (btn.innerHTML = "hide answer");
   if (btn.innerHTML == "hide answer") return (btn.innerHTML = "show answer");
 };
 
+// DARK MODE FUNCTIONALITY BELOW
+
 //determines if the user has a set theme
-const detectColorScheme = () => {
-  var theme = "light"; //default to light
-  console.log(localStorage.getItem("theme"));
+//   const detectColorScheme = () => {
+//     var theme = "light"; //default to light
+//     console.log(localStorage.getItem("theme"));
 
-  //local storage is used to override OS theme settings
-  if (localStorage.getItem("theme")) {
-    console.log(localStorage.getItem("theme"));
-    if (localStorage.getItem("theme") == "dark") {
-      var theme = "dark";
-    }
-  } else if (!window.matchMedia) {
-    //matchMedia method not supported
-    return false;
-  } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-    //OS theme setting detected as dark
-    var theme = "dark";
-  }
+//     //local storage is used to override OS theme settings
+//     if (localStorage.getItem("theme")) {
+//       console.log(localStorage.getItem("theme"));
+//       if (localStorage.getItem("theme") == "dark") {
+//         var theme = "dark";
+//       }
+//     } else if (!window.matchMedia) {
+//       //matchMedia method not supported
+//       return false;
+//     } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+//       //OS theme setting detected as dark
+//       var theme = "dark";
+//     }
 
-  //dark theme preferred, set document with a `data-theme` attribute
-  if (theme == "dark") {
-    document.documentElement.setAttribute("data-theme", "dark");
-  }
-};
+//     //dark theme preferred, set document with a `data-theme` attribute
+//     if (theme == "dark") {
+//       document.documentElement.setAttribute("data-theme", "dark");
+//     }
+//   };
 
-const switchTheme = (checkbox) => {
-  if (checkbox.checked) {
-    localStorage.setItem("theme", "dark");
-    document.documentElement.setAttribute("data-theme", "dark");
-    checkbox.checked = true;
-  } else {
-    localStorage.setItem("theme", "light");
-    document.documentElement.setAttribute("data-theme", "light");
-    checkbox.checked = false;
-  }
-};
+//   const switchTheme = (checkbox) => {
+//     if (checkbox.checked) {
+//       localStorage.setItem("theme", "dark");
+//       document.documentElement.setAttribute("data-theme", "dark");
+//       checkbox.checked = true;
+//     } else {
+//       localStorage.setItem("theme", "light");
+//       document.documentElement.setAttribute("data-theme", "light");
+//       checkbox.checked = false;
+//     }
+//   };
 
+//   // Toggle darkmode
+//   if (evt.target.classList.contains("toggle-dark-mode-input")) {
+//     if (document.documentElement.getAttribute("data-theme") == "dark") {
+//       evt.target.checked = true;
+//       console.log(evt.target.checked);
+//     }
+//     detectColorScheme();
+//     switchTheme(evt.target);
+//   }
 // Handle form submit and add new card to page
 const form = document.querySelector('[data-js="form"]');
 const newCardDiv = document.querySelector(".new-card-container");
@@ -93,7 +94,7 @@ form.addEventListener("submit", (event) => {
   // Gather data from the form and log it to the console
   const formData = new FormData(event.target);
   const data = Object.fromEntries(formData);
-  console.log(data);
+
   let cardSection = document.createElement("div");
   let card = document.createElement("div");
   let cardTitle = document.createElement("p");
@@ -140,3 +141,28 @@ form.addEventListener("submit", (event) => {
     skillTreeDiv.append(tag);
   });
 });
+
+// Setup counter
+let questionCounter = document.querySelector(".question-counter");
+let answerCounter = document.querySelector(".answer-counter");
+let questionInput = document.querySelector(".question-input");
+let answerInput = document.querySelector(".answer-input");
+let maxLength = 160;
+console.log(questionCounter);
+// Default values
+questionCounter.innerHTML = maxLength + " characters left";
+answerCounter.innerHTML = maxLength + " characters left";
+// Watch the input and update counters
+questionInput.addEventListener("input", count);
+answerInput.addEventListener("input", count);
+// Count the remaining characters for the input fields
+function count(e) {
+  if (e.target.name == "answer") {
+    answerCounter.innerHTML =
+      maxLength - e.target.value.length + " characters left";
+  }
+  if (e.target.name == "question") {
+    questionCounter.innerHTML =
+      maxLength - e.target.value.length + " characters left";
+  }
+}

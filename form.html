@@ -16,32 +16,39 @@
         <fieldset>
           <label for="question">Question</label>
           <textarea
+            class="question-input"
             rows="4"
             cols="40"
             type="text"
+            maxlength="160"
             name="question"
             js-data="question"
             id="question"
           ></textarea>
+          <span class="question-counter"></span>
         </fieldset>
         <fieldset>
           <label for="answer">Answer</label>
           <textarea
+            class="answer-input"
             rows="4"
             cols="40"
             type="text"
+            maxlength="160"
             js-data="answer"
             name="answer"
             id="answer"
           ></textarea>
+          <span class="answer-counter"></span>
         </fieldset>
         <fieldset>
           <label for="tag">Tags</label>
           <textarea
-            placeholder="Please separate tags using single spaces"
             rows="4"
+            placeholder="Please separate tags using single spaces"
             cols="40"
             type="text"
+            maxlength="40"
             name="tag"
             js-data="tag"
             id="tag"

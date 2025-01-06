@@ -1,4 +1,5 @@
-const form = document.querySelector('data-js="form"');
+// Handle form submit and add new card to page
+const form = document.querySelector('[data-js="form"]');
 const newCardDiv = document.querySelector(".new-card-container");
 form.addEventListener("submit", (event) => {
   // Prevent page reload
@@ -8,6 +9,7 @@ form.addEventListener("submit", (event) => {
   const formData = new FormData(event.target);
   const data = Object.fromEntries(formData);
 
+  let cardSection = document.createElement("div");
   let card = document.createElement("div");
   let cardTitle = document.createElement("p");
   let cardQuestion = document.createElement("p");
@@ -16,25 +18,20 @@ form.addEventListener("submit", (event) => {
   let img = document.createElement("img");
   let skillTreeDiv = document.createElement("div");
 
+  cardSection.classList.add("card-section");
   card.classList.add("quiz-card");
   cardTitle.classList.add("card-title");
   cardQuestion.classList.add("card-question");
   button.classList.add("show-answer-btn");
-  answer.classList.add("quiz-answer hide-answer");
+  answer.classList.add("quiz-answer");
+  answer.classList.add("hide-answer");
   img.classList.add("bookmark"); // set source later
   skillTreeDiv.classList.add("skill-tree"); // set source later
 
-  // Set values
-  cardTitle.innerHTML = "Question";
-  cardQuestion.innerHTML = "Question";
-  cardTitle.innerHTML = data.question;
-  button.innerHTML = "show answer";
-  answer.innerHTML = data.answer;
-  img.setAttribute("src", "./assets/notbookmark.svg");
-
   // Append elements
 
-  newCardDiv.append(card);
+  newCardDiv.append(cardSection);
+  cardSection.append(card);
   card.append(cardTitle);
   card.append(cardQuestion);
   card.append(button);
@@ -42,21 +39,36 @@ form.addEventListener("submit", (event) => {
   card.append(img);
   card.append(skillTreeDiv);
 
+  // Set values
+  cardTitle.innerHTML = "Question";
+  cardQuestion.innerHTML = data.question;
+  button.innerHTML = "hide answer";
+  answer.innerHTML = data.answer;
+  img.setAttribute("src", "./assets/notbookmark.svg");
+  updateShowButtonText(button);
   // Create tag elements
-
-  let tagArray = data.tags.split(" ");
-  console.log(tagArray);
+  let tagArray = data.tag.replace("\n", "").split(" ");
+  tagArray.forEach((element) => {
+    let tag = document.createElement("span");
+    tag.innerHTML = element;
+    tag.classList.add("skill-tree-span");
+    skillTreeDiv.append(tag);
+  });
 });
 
-/* 
-  <div class="quiz-card">
-  <p class="card-title">Question</p>
-       
-<p class="card-question">How can you center an element horizontally in CSS?</p>
-<button data-js="show-answer"  class="show-answer-btn">show answer</button>
-<span class="quiz-answer hide-answer" data-js="quiz-answer">By setting its margin property to auto.</span>
-<img src="./assets/notbookmark.svg" class="bookmark"></img>
-<div class="skill-tree">
-  <span>html</span><span>css</span><span>flexbox</span>
-</div>
-</div> */
+// Setup counter
+let inputCounter = document.querySelector(".input-counter");
+let maxLength = 160;
+document.addEventListener("load", () => {
+  inputCounter.innerHTML = maxLength + " characters left";
+});
+// Count the remaining characters for the input fields
+
+let formInput = document.querySelector(".form-input");
+formInput.addEventListener("input", count);
+function count(e) {
+  inputCounter.innerHTML =
+    e.target.getAttribute("maxlength") -
+    formInput.value.length +
+    " characters left";
+}
