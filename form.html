@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Create Card</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+
+  <body>
+    <header class="main-header">
+      <h1 class="header-brand">Quiz App</h1>
+    </header>
+    <main class="main-content">
+      <form data-js="form" class="form">
+        <fieldset>
+          <label for="question">Question</label>
+          <textarea
+            rows="4"
+            cols="40"
+            type="text"
+            name="question"
+            js-data="question"
+            id="question"
+          ></textarea>
+        </fieldset>
+        <fieldset>
+          <label for="answer">Answer</label>
+          <textarea
+            rows="4"
+            cols="40"
+            type="text"
+            js-data="answer"
+            name="answer"
+            id="answer"
+          ></textarea>
+        </fieldset>
+        <fieldset>
+          <label for="tag">Tags</label>
+          <textarea
+            placeholder="Please separate tags using single spaces"
+            rows="4"
+            cols="40"
+            type="text"
+            name="tag"
+            js-data="tag"
+            id="tag"
+          ></textarea>
+        </fieldset>
+        <button type="submit">Create Card</button>
+      </form>
+      <div class="new-card-container"></div>
+    </main>
+    <footer class="main-footer">
+      <nav class="footer-nav">
+        <a class="footer-link" href="./index.html"
+          ><img src="./assets/home.svg" alt=""
+        /></a>
+        <a class="footer-link" href="./bookmarks.html"
+          ><img src="./assets/bookmark.svg" alt=""
+        /></a>
+        <a class="footer-link" href="./form.html"
+          ><img src="./assets/create.svg" alt=""
+        /></a>
+        <a class="footer-link" href="./profile.html"
+          ><img src="./assets/profile.svg" alt=""
+        /></a>
+      </nav>
+    </footer>
+    <script src="./js/index.js"></script>
+  </body>
+</html>
