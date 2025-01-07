@@ -1,4 +1,3 @@
-// Set up a click event on the document, so any click will trigger the callback
 let buttons = document.querySelectorAll(".show-answer-btn");
 let bookmarks = document.querySelectorAll(".bookmark");
 
@@ -10,10 +9,8 @@ bookmarks.forEach((bookmark) => {
 });
 
 function buttonPicked(evt) {
-  // Return the value of the clicked button
-  let parentofSelected = evt.target.parentNode; // gives the parent DIV
+  let parentofSelected = evt.target.parentNode;
   let children = parentofSelected.childNodes;
-  // Toggle class to hide and show answer
   for (let i = 0; i < children.length; i++) {
     if (children[i]?.classList?.contains("quiz-answer")) {
       children[i].classList.toggle("hide-answer");
@@ -22,7 +19,6 @@ function buttonPicked(evt) {
   }
 }
 function bookmarkPicked(evt) {
-  // Return the value of the clicked button
   let bookmarked = evt.target.getAttribute("src");
   let src =
     bookmarked == "./assets/notbookmark.svg"
@@ -32,7 +28,6 @@ function bookmarkPicked(evt) {
   evt.target.setAttribute("src", src);
 }
 
-// Update button text (show/hide answer) function
 const updateShowButtonText = (btn) => {
   btn.innerHTML =
     btn.innerHTML == "show answer" ? "hide answer" : "show answer";

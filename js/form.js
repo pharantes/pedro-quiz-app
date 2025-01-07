@@ -1,4 +1,3 @@
-// Handle form submit and add new card to page
 const form = document.querySelector(".form");
 const newCardDiv = document.querySelector(".new-card-container");
 
@@ -25,12 +24,10 @@ form.addEventListener("submit", (event) => {
   button.addEventListener("click", buttonPicked);
   answer.classList.add("quiz-answer");
   answer.classList.add("hide-answer");
-  img.classList.add("bookmark"); // set source later
+  img.classList.add("bookmark");
   img.addEventListener("click", bookmarkPicked);
 
-  skillTreeDiv.classList.add("skill-tree"); // set source later
-
-  // Append elements
+  skillTreeDiv.classList.add("skill-tree");
 
   newCardDiv.append(cardSection);
   cardSection.append(card);
@@ -41,14 +38,13 @@ form.addEventListener("submit", (event) => {
   card.append(img);
   card.append(skillTreeDiv);
 
-  // Set values
   cardTitle.innerHTML = "Question";
   cardQuestion.innerHTML = data.question;
   button.innerHTML = "hide answer";
   answer.innerHTML = data.answer;
   img.setAttribute("src", "./assets/notbookmark.svg");
   updateShowButtonText(button);
-  // Create tag elements
+
   let tagArray = data.tag.replace("\n", "").split(" ");
   tagArray.forEach((element) => {
     let tag = document.createElement("span");
@@ -58,19 +54,18 @@ form.addEventListener("submit", (event) => {
   });
 });
 
-// Setup counter
 let questionCounter = document.querySelector(".question-counter");
 let answerCounter = document.querySelector(".answer-counter");
 let questionInput = document.querySelector(".question-input");
 let answerInput = document.querySelector(".answer-input");
 let maxLength = 160;
-// Default values
+
 questionCounter.innerHTML = maxLength + " characters left";
 answerCounter.innerHTML = maxLength + " characters left";
-// Watch the input and update counters
+
 questionInput.addEventListener("input", count);
 answerInput.addEventListener("input", count);
-// Count the remaining characters for the input fields
+
 function count(e) {
   if (e.target.name == "answer") {
     answerCounter.innerHTML =
