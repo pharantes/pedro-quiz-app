@@ -58,7 +58,10 @@ let questionCounter = document.querySelector(".question-counter");
 let answerCounter = document.querySelector(".answer-counter");
 let questionInput = document.querySelector(".question-input");
 let answerInput = document.querySelector(".answer-input");
-let maxLength = 160;
+let maxLength = 140;
+
+questionInput.maxLength = maxLength;
+answerInput.maxLength = maxLength;
 
 questionCounter.innerHTML = maxLength + " characters left";
 answerCounter.innerHTML = maxLength + " characters left";
