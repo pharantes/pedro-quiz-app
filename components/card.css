@@ -56,6 +56,7 @@
   font-weight: bold;
   color: var(--color-card-question);
   font-size: 1.4rem;
+  overflow-wrap: break-word;
 }
 
 .hide-answer {
@@ -64,6 +65,7 @@
 .quiz-answer {
   text-align: center;
   font-size: 1.2rem;
+  overflow-wrap: break-word;
 }
 .show-answer-btn {
   font-weight: bold;
