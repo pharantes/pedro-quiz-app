@@ -1,5 +1,10 @@
 const form = document.querySelector(".form");
 const newCardDiv = document.querySelector(".new-card-container");
+const questionCounter = document.querySelector(".question-counter");
+const answerCounter = document.querySelector(".answer-counter");
+const questionInput = document.querySelector(".question-input");
+const answerInput = document.querySelector(".answer-input");
+const maxLength = 140;
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
@@ -53,12 +58,6 @@ form.addEventListener("submit", (event) => {
     skillTreeDiv.append(tag);
   });
 });
-
-let questionCounter = document.querySelector(".question-counter");
-let answerCounter = document.querySelector(".answer-counter");
-let questionInput = document.querySelector(".question-input");
-let answerInput = document.querySelector(".answer-input");
-let maxLength = 140;
 
 questionInput.maxLength = maxLength;
 answerInput.maxLength = maxLength;
