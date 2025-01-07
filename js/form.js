@@ -57,6 +57,7 @@ form.addEventListener("submit", (event) => {
     tag.classList.add("skill-tree-span");
     skillTreeDiv.append(tag);
   });
+  form.reset();
 });
 
 questionInput.setAttribute("maxlength", maxLength);
