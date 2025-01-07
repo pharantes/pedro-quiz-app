@@ -59,8 +59,8 @@ form.addEventListener("submit", (event) => {
   });
 });
 
-questionInput.maxLength = maxLength;
-answerInput.maxLength = maxLength;
+questionInput.setAttribute("maxlength", maxLength);
+answerInput.setAttribute("maxlength", maxLength);
 
 questionCounter.innerHTML = maxLength + " characters left";
 answerCounter.innerHTML = maxLength + " characters left";
@@ -69,6 +69,10 @@ questionInput.addEventListener("input", count);
 answerInput.addEventListener("input", count);
 
 function count(e) {
+  if (e.target.value.length > maxLength) {
+    alert("You reached the max character limit");
+    return false;
+  }
   if (e.target.name == "answer") {
     answerCounter.innerHTML =
       maxLength - e.target.value.length + " characters left";
